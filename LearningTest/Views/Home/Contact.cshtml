@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+
+<div class="col-md-8 order-md-1">
+    <h4 class="mb-3">Billing address</h4>
+    @using(Html.BeginForm("Contact","Home",FormMethod.Post,new { @id = "frmform", @name="form" })) { 
+    @*<form class="needs-validation" novalidate action="@Url.Action("Contact", "Home")" method="post">*@
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="firstName">First name</label>
+                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                    Valid first name is required.
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="lastName">Last name</label>
+                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                    Valid last name is required.
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-5 mb-3">
+                <label for="country">Country</label>
+                <select class="custom-select d-block w-100" id="country" name="country" required>
+                    <option>Choose...</option>
+                    <option value="1">United States</option>
+                </select>
+                <div class="invalid-feedback">
+                    Please select a valid country.
+                </div>
+            </div>
+
+        </div>
+
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+    @*</form>*@
+    }
+</div>
